@@ -630,7 +630,7 @@ const KodeshwaraFantasyWebsite = () => {
                 <h5 className="font-semibold text-blue-600 mb-3">Playing Status</h5>
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-700">Playing Substitute</span>
+                    <span className="text-gray-700">Playing11 or Impact Player</span>
                     <span className="font-semibold text-blue-600">+4</span>
                   </div>
                 </div>
