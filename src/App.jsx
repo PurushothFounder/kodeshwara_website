@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Star, Trophy, Users, Shield, Play, Menu, X, CheckCircle, Award, Target, Zap } from 'lucide-react';
 import logo from './assets/images/icon.png'; 
-
 const KodeshwaraFantasyWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
+  const [activeFormat, setActiveFormat] = useState('T20');
+
+  // Your actual logo
 
   // Scroll to section handler
   const scrollToSection = (sectionId) => {
@@ -39,6 +41,138 @@ const KodeshwaraFantasyWebsite = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Fantasy points data based on your backend
+  const fantasyPoints = {
+    T10: {
+      batting: {
+        basic: [
+          { action: "Run", points: "+1" },
+          { action: "Boundary (4)", points: "+1" },
+          { action: "Six", points: "+2" },
+          { action: "Duck", points: "-2" }
+        ],
+        milestones: [
+          { runs: "30 runs", points: "+8" },
+          { runs: "50 runs", points: "+16" },
+          { runs: "100 runs", points: "+25" }
+        ],
+        strikeRate: [
+          { range: "190+ SR", points: "+6" },
+          { range: "170-189 SR", points: "+4" },
+          { range: "150-169 SR", points: "+2" },
+          { range: "71-80 SR", points: "-2" },
+          { range: "61-70 SR", points: "-4" },
+          { range: "Below 60 SR", points: "-6" }
+        ]
+      },
+      bowling: {
+        basic: [
+          { action: "Wicket", points: "+25" },
+          { action: "Maiden Over", points: "+16" },
+          { action: "LBW/Bowled Bonus", points: "+8" }
+        ],
+        milestones: [
+          { wickets: "2 wickets", points: "+8" },
+          { wickets: "3 wickets", points: "+16" },
+          { wickets: "4+ wickets", points: "+16" }
+        ],
+        economy: [
+          { rate: "Under 7.0", points: "+6" },
+          { rate: "7.01-8.0", points: "+4" },
+          { rate: "8.01-9.0", points: "+2" },
+          { rate: "14.0-15.0", points: "-2" },
+          { rate: "15.01-16.0", points: "-4" },
+          { rate: "Above 16.0", points: "-6" }
+        ]
+      }
+    },
+    T20: {
+      batting: {
+        basic: [
+          { action: "Run", points: "+1" },
+          { action: "Boundary (4)", points: "+1" },
+          { action: "Six", points: "+2" },
+          { action: "Duck", points: "-2" }
+        ],
+        milestones: [
+          { runs: "30 runs", points: "+4" },
+          { runs: "50 runs", points: "+8" },
+          { runs: "100 runs", points: "+16" }
+        ],
+        strikeRate: [
+          { range: "170+ SR", points: "+6" },
+          { range: "150-169 SR", points: "+4" },
+          { range: "130-149 SR", points: "+2" },
+          { range: "71-100 SR", points: "-2" },
+          { range: "61-70 SR", points: "-4" },
+          { range: "Below 60 SR", points: "-6" }
+        ]
+      },
+      bowling: {
+        basic: [
+          { action: "Wicket", points: "+25" },
+          { action: "Maiden Over", points: "+12" },
+          { action: "LBW/Bowled Bonus", points: "+8" }
+        ],
+        milestones: [
+          { wickets: "3 wickets", points: "+4" },
+          { wickets: "4 wickets", points: "+8" },
+          { wickets: "5+ wickets", points: "+12" }
+        ],
+        economy: [
+          { rate: "Under 5.0", points: "+6" },
+          { rate: "5.01-6.0", points: "+4" },
+          { rate: "6.01-7.0", points: "+2" },
+          { rate: "10.0-11.0", points: "-2" },
+          { rate: "11.01-12.0", points: "-4" },
+          { rate: "Above 12.0", points: "-6" }
+        ]
+      }
+    },
+    ODI: {
+      batting: {
+        basic: [
+          { action: "Run", points: "+1" },
+          { action: "Boundary (4)", points: "+1" },
+          { action: "Six", points: "+2" },
+          { action: "Duck", points: "-3" }
+        ],
+        milestones: [
+          { runs: "50 runs", points: "+4" },
+          { runs: "100 runs", points: "+8" }
+        ],
+        strikeRate: [
+          { range: "140+ SR", points: "+6" },
+          { range: "120-139 SR", points: "+4" },
+          { range: "100-119 SR", points: "+2" },
+          { range: "41-50 SR", points: "-2" },
+          { range: "31-40 SR", points: "-4" },
+          { range: "Below 30 SR", points: "-6" }
+        ]
+      },
+      bowling: {
+        basic: [
+          { action: "Wicket", points: "+25" },
+          { action: "Maiden Over", points: "+4" },
+          { action: "LBW/Bowled Bonus", points: "+8" }
+        ],
+        milestones: [
+          { wickets: "4 wickets", points: "+4" },
+          { wickets: "5 wickets", points: "+8" },
+          { wickets: "6+ wickets", points: "+12" }
+        ],
+        economy: [
+          { rate: "Under 2.5", points: "+6" },
+          { rate: "2.51-3.5", points: "+4" },
+          { rate: "3.51-4.5", points: "+2" },
+          { rate: "7.0-8.0", points: "-2" },
+          { rate: "8.01-9.0", points: "-4" },
+          { rate: "Above 9.0", points: "-6" }
+        ]
+      }
+    }
+  };
 
   const Header = () => (
     <header className="fixed top-0 w-full bg-white/95 backdrop-blur-sm z-50 shadow-lg">
@@ -267,7 +401,7 @@ const KodeshwaraFantasyWebsite = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {[
             {
               step: "1",
@@ -307,77 +441,218 @@ const KodeshwaraFantasyWebsite = () => {
           ))}
         </div>
 
-        {/* Scoring Information */}
-        <div className="mt-16 bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Fantasy Points System</h3>
-          <div className="mb-6 text-center">
-            <p className="text-gray-600">Points vary by match format - T20, T10, ODI, and Test Cricket</p>
-          </div>
-          <div className="grid md:grid-cols-4 gap-6 mb-8">
-            {/* Format Specific Points */}
-            <div className="text-center bg-blue-50 p-4 rounded-lg">
-              <h4 className="font-bold text-blue-600 mb-2">T20</h4>
-              <div className="text-sm text-gray-600">
-                <div>SR Bonus: 140+</div>
-                <div>ER Bonus: Under 6</div>
-              </div>
-            </div>
-            <div className="text-center bg-green-50 p-4 rounded-lg">
-              <h4 className="font-bold text-green-600 mb-2">T10</h4>
-              <div className="text-sm text-gray-600">
-                <div>SR Bonus: 150+</div>
-                <div>ER Bonus: Under 7</div>
-              </div>
-            </div>
-            <div className="text-center bg-purple-50 p-4 rounded-lg">
-              <h4 className="font-bold text-purple-600 mb-2">ODI</h4>
-              <div className="text-sm text-gray-600">
-                <div>SR Bonus: 100+</div>
-                <div>ER Bonus: Under 4.5</div>
-              </div>
-            </div>
-            <div className="text-center bg-orange-50 p-4 rounded-lg">
-              <h4 className="font-bold text-orange-600 mb-2">TEST</h4>
-              <div className="text-sm text-gray-600">
-                <div>SR Bonus: 70+</div>
-                <div>ER Bonus: Under 3</div>
-              </div>
+        {/* Fantasy Points System */}
+        <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Fantasy Points System</h3>
+          
+          {/* Format Selector */}
+          <div className="flex justify-center mb-8">
+            <div className="bg-gray-100 rounded-lg p-1">
+              {['T10', 'T20', 'ODI'].map((format) => (
+                <button
+                  key={format}
+                  onClick={() => setActiveFormat(format)}
+                  className={`px-6 py-2 rounded-md font-semibold transition-all ${
+                    activeFormat === format
+                      ? 'bg-blue-600 text-white shadow-md'
+                      : 'text-gray-600 hover:text-blue-600'
+                  }`}
+                >
+                  {format}
+                </button>
+              ))}
             </div>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div>
-              <h4 className="font-semibold text-blue-600 mb-4">Batting Points</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Run: +1 point</li>
-                <li>• Boundary: +1 point</li>
-                <li>• Six: +2 points</li>
-                <li>• 30 runs: +4 points</li>
-                <li>• Half-century: +8 points</li>
-                <li>• Century: +16 points</li>
-                <li>• Duck: -2 points</li>
-              </ul>
+
+          {/* Format Info */}
+          <div className="text-center mb-8">
+            <p className="text-gray-600">
+              Points optimized for {activeFormat} cricket format
+              {activeFormat === 'ODI' && (
+                <span className="block text-sm mt-1 text-blue-600">
+                  * Test format points coming soon with 100 & 160 run milestones
+                </span>
+              )}
+            </p>
+          </div>
+
+          {/* Points Breakdown */}
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Batting Points */}
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
+              <h4 className="text-xl font-bold text-green-700 mb-6 flex items-center">
+                <span className="bg-green-100 p-2 rounded-lg mr-3">🏏</span>
+                Batting Points
+              </h4>
+              
+              {/* Basic Points */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-green-600 mb-3">Basic Scoring</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].batting.basic.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.action}</span>
+                      <span className="font-semibold text-green-600">{item.points}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Milestones */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-green-600 mb-3">Milestones</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].batting.milestones.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.runs}</span>
+                      <span className="font-semibold text-green-600">{item.points}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Strike Rate */}
+              <div>
+                <h5 className="font-semibold text-green-600 mb-3">Strike Rate Bonus</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].batting.strikeRate.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.range}</span>
+                      <span className={`font-semibold ${item.points.startsWith('+') ? 'text-green-600' : 'text-red-600'}`}>
+                        {item.points}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-purple-600 mb-4">Bowling Points</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Wicket: +25 points</li>
-                <li>• Maiden Over: +8 points</li>
-                <li>• LBW/Bowled: +8 points</li>
-                <li>• 3 Wickets: +4 points</li>
-                <li>• 4 Wickets: +8 points</li>
-                <li>• 5 Wickets: +16 points</li>
-              </ul>
+
+            {/* Bowling Points */}
+            <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
+              <h4 className="text-xl font-bold text-purple-700 mb-6 flex items-center">
+                <span className="bg-purple-100 p-2 rounded-lg mr-3">⚡</span>
+                Bowling Points
+              </h4>
+              
+              {/* Basic Points */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-purple-600 mb-3">Basic Scoring</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].bowling.basic.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.action}</span>
+                      <span className="font-semibold text-purple-600">{item.points}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Milestones */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-purple-600 mb-3">Wicket Milestones</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].bowling.milestones.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.wickets}</span>
+                      <span className="font-semibold text-purple-600">{item.points}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Economy Rate */}
+              <div>
+                <h5 className="font-semibold text-purple-600 mb-3">Economy Rate Bonus</h5>
+                <div className="space-y-2">
+                  {fantasyPoints[activeFormat].bowling.economy.map((item, index) => (
+                    <div key={index} className="flex justify-between text-sm">
+                      <span className="text-gray-700">{item.rate}</span>
+                      <span className={`font-semibold ${item.points.startsWith('+') ? 'text-purple-600' : 'text-red-600'}`}>
+                        {item.points}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <div>
-              <h4 className="font-semibold text-green-600 mb-4">Fielding Points</h4>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Catch: +8 points</li>
-                <li>• Stumping: +12 points</li>
-                <li>• Run Out: +6 points</li>
-                <li>• Direct Hit: +12 points</li>
-                <li>• Captain: 2x points</li>
-                <li>• Vice-Captain: 1.5x points</li>
-              </ul>
+
+            {/* Fielding & Other Points */}
+            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl p-6">
+              <h4 className="text-xl font-bold text-blue-700 mb-6 flex items-center">
+                <span className="bg-blue-100 p-2 rounded-lg mr-3">🥎</span>
+                Fielding & Others
+              </h4>
+              
+              {/* Fielding */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-blue-600 mb-3">Fielding</h5>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Catch</span>
+                    <span className="font-semibold text-blue-600">+8</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Stumping</span>
+                    <span className="font-semibold text-blue-600">+12</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Run Out (Direct)</span>
+                    <span className="font-semibold text-blue-600">+12</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Run Out (Indirect)</span>
+                    <span className="font-semibold text-blue-600">+6</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">3+ Catches Bonus</span>
+                    <span className="font-semibold text-blue-600">+4</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Captain & Vice-Captain */}
+              <div className="mb-6">
+                <h5 className="font-semibold text-blue-600 mb-3">Leadership</h5>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Captain</span>
+                    <span className="font-semibold text-blue-600">2x Points</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Vice-Captain</span>
+                    <span className="font-semibold text-blue-600">1.5x Points</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Playing Status */}
+              <div>
+                <h5 className="font-semibold text-blue-600 mb-3">Playing Status</h5>
+                <div className="space-y-2 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-700">Playing Substitute</span>
+                    <span className="font-semibold text-blue-600">+4</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Note */}
+              <div className="mt-6 p-3 bg-yellow-50 rounded-lg">
+                <p className="text-xs text-yellow-700">
+                  <strong>Note:</strong> Minimum balls/overs required for SR/ER bonus varies by format
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-8 text-center">
+            <div className="bg-gray-50 rounded-lg p-4">
+              <h5 className="font-semibold text-gray-800 mb-2">Coming Soon</h5>
+              <p className="text-sm text-gray-600">
+                Test cricket format with special milestones: 100 runs (+20 points), 160 runs (+25 points), 
+                and 5-day match optimized scoring system
+              </p>
             </div>
           </div>
         </div>
@@ -492,7 +767,7 @@ const KodeshwaraFantasyWebsite = () => {
                   <span className="font-bold text-blue-600">1000 users</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Avg Monthly Winning per Friend:</span>
+                  <span>Avg Monthly Net Winning per Friend:</span>
                   <span className="font-bold text-green-600">₹10,000</span>
                 </div>
                 <div className="flex justify-between">
