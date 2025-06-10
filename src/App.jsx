@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Star, Trophy, Users, Shield, Play, Menu, X, CheckCircle, Award, Target, Zap } from 'lucide-react';
 import logo from './assets/images/icon.png'; 
+
 const KodeshwaraFantasyWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [activeFormat, setActiveFormat] = useState('T20');
-
-  // Your actual logo
 
   // Scroll to section handler
   const scrollToSection = (sectionId) => {
@@ -182,7 +181,7 @@ const KodeshwaraFantasyWebsite = () => {
          <div className="flex items-center space-x-2">
           <img 
             src={logo} 
-            alt="Kodeshwara Fantasy Logo" 
+            alt="Kodeshwara Fantasy Cricket Logo" 
             className="w-10 h-10 rounded-lg object-contain"
           />
           <div className="font-bold text-xl text-gray-800">
@@ -824,8 +823,7 @@ const KodeshwaraFantasyWebsite = () => {
             {/* Download Buttons */}
             <div className="space-y-4">
               <a
-                href="https://your-apk-download-link.com/kodeshwara-fantasy.apk"
-                download
+                href="http://kodeshwara-backend.onrender.com/api/v1/download/app?code=USERTV"
                 className="inline-flex items-center justify-center w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 space-x-3"
               >
                 <Download className="w-6 h-6" />
@@ -893,7 +891,7 @@ const KodeshwaraFantasyWebsite = () => {
             <div className="flex items-center space-x-2 mb-4">
               <img 
                   src={logo} 
-                  alt="Kodeshwara Fantasy Logo" 
+                  alt="Kodeshwara Fantasy Cricket Logo" 
                   className="w-8 h-8 rounded-lg object-contain"
                 />
               <div className="font-bold text-xl">
@@ -926,10 +924,8 @@ const KodeshwaraFantasyWebsite = () => {
           <div>
             <h3 className="font-semibold text-lg mb-4">Support</h3>
             <ul className="space-y-2 text-gray-400">
-              <li><a href="/terms-and-conditions" className="hover:text-white transition-colors">Terms & Conditions</a></li>
-              <li><a href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="mailto:support@kodeshwara.in" className="hover:text-white transition-colors">Contact Support</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="https://kodeshwara-backend.onrender.com/api/v1/terms-and-conditions" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Terms & Conditions</a></li>
+              <li><a href="mailto:kodeshwarafantasy@gmail.com" className="hover:text-white transition-colors">Contact Support</a></li>
             </ul>
           </div>
         </div>
