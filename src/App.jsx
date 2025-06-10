@@ -276,13 +276,15 @@ const KodeshwaraFantasyWebsite = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <button
-                onClick={() => scrollToSection('download')}
+              <a
+                href="https://kodeshwara-backend.onrender.com/api/v1/refer?code=USERTV"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Download className="w-5 h-5" />
                 <span>Download App</span>
-              </button>
+              </a>
               <button
                 onClick={() => scrollToSection('how-to-play')}
                 className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 flex items-center justify-center space-x-2"
