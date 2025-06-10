@@ -823,7 +823,7 @@ const KodeshwaraFantasyWebsite = () => {
             {/* Download Buttons */}
             <div className="space-y-4">
               <a
-                href="http://kodeshwara-backend.onrender.com/api/v1/download/app?code=USERTV"
+                href="https://kodeshwara-backend.onrender.com/api/v1/refer?code=USERTV"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 space-x-3"
