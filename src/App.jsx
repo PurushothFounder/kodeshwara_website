@@ -907,7 +907,7 @@ const KodeshwaraFantasyWebsite = () => {
               Join millions of cricket fans and turn your cricket knowledge into real winnings.
             </p>
             <div className="text-sm text-gray-500">
-              Operated by Baskaran Services OPC Private Limited
+              Operated by Bhaskaran Services OPC Private Limited
               <br />
               Registered in 2025, Chennai, Tamil Nadu, India
             </div>
@@ -938,7 +938,7 @@ const KodeshwaraFantasyWebsite = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 Baskaran Services OPC Private Limited. All rights reserved.
+              © 2025 Bhaskaran Services OPC Private Limited. All rights reserved.
             </div>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
