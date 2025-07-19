@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Download, Star, Trophy, Users, Shield, Play, Menu, X, CheckCircle, Award, Target, Zap, Rocket, TrendingUp } from 'lucide-react';
+import logo from './assets/images/icon.png'; 
 
 const KodeshwaraFantasyWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [activeFormat, setActiveFormat] = useState('T20');
-
-  // Logo placeholder - you'll need to add your actual logo
-  const logo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%233B82F6'/%3E%3Ctext x='20' y='28' text-anchor='middle' fill='white' font-size='24' font-weight='bold'%3EK%3C/text%3E%3C/svg%3E";
 
   // Scroll to section handler
   const scrollToSection = (sectionId) => {
