@@ -247,10 +247,6 @@ const KodeshwaraFantasyWebsite = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
-            <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-4 py-2 mb-6">
-              <Rocket className="w-4 h-4 text-blue-600 mr-2" />
-              <span className="text-sm font-semibold text-blue-600">Just Launched - Join the Revolution!</span>
-            </div>
             
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
               The Next Big Thing in
