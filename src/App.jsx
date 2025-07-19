@@ -315,7 +315,7 @@ const KodeshwaraFantasyWebsite = () => {
                     <div className="space-y-3">
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="flex justify-between items-center">
-                          <span className="text-sm">IPL 2025</span>
+                          <span className="text-sm">IPL 2026</span>
                           <span className="text-xs bg-green-400 text-green-900 px-2 py-1 rounded">Ready</span>
                         </div>
                       </div>
