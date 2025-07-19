@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronDown, Download, Star, Trophy, Users, Shield, Play, Menu, X, CheckCircle, Award, Target, Zap } from 'lucide-react';
-import logo from './assets/images/icon.png'; 
+import { ChevronDown, Download, Star, Trophy, Users, Shield, Play, Menu, X, CheckCircle, Award, Target, Zap, Rocket, TrendingUp } from 'lucide-react';
 
 const KodeshwaraFantasyWebsite = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
   const [activeFormat, setActiveFormat] = useState('T20');
+
+  // Logo placeholder - you'll need to add your actual logo
+  const logo = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='8' fill='%233B82F6'/%3E%3Ctext x='20' y='28' text-anchor='middle' fill='white' font-size='24' font-weight='bold'%3EK%3C/text%3E%3C/svg%3E";
 
   // Scroll to section handler
   const scrollToSection = (sectionId) => {
@@ -245,46 +247,61 @@ const KodeshwaraFantasyWebsite = () => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div className="text-center lg:text-left">
+            <div className="inline-flex items-center bg-gradient-to-r from-blue-100 to-purple-100 rounded-full px-4 py-2 mb-6">
+              <Rocket className="w-4 h-4 text-blue-600 mr-2" />
+              <span className="text-sm font-semibold text-blue-600">Just Launched - Join the Revolution!</span>
+            </div>
+            
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-              Play Fantasy
+              The Next Big Thing in
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                {' '}Cricket
+                {' '}Fantasy Cricket
               </span>
-              <br />
-              Win Real Cash
             </h1>
             <p className="text-xl text-gray-700 mb-8 leading-relaxed">
-              Join millions of cricket fans in India's most exciting fantasy cricket platform. 
-              Create your dream team, showcase your cricket knowledge, and win amazing prizes!
+              Be among the first to experience India's most innovative fantasy cricket platform. 
+              Built by cricket lovers, for cricket lovers. Your cricket knowledge deserves better rewards!
             </p>
             
-            {/* Stats */}
+            {/* Startup Stats */}
             <div className="grid grid-cols-3 gap-4 mb-8">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600">1M+</div>
-                <div className="text-sm text-gray-600">Active Users</div>
+                <div className="text-2xl font-bold text-blue-600 flex items-center justify-center">
+                  <TrendingUp className="w-6 h-6 mr-1" />
+                  NEW
+                </div>
+                <div className="text-sm text-gray-600">Fresh Launch</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">₹50L+</div>
-                <div className="text-sm text-gray-600">Prizes Won</div>
+                <div className="text-2xl font-bold text-purple-600">₹25</div>
+                <div className="text-sm text-gray-600">Welcome Bonus</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600">Lifetime</div>
-                <div className="text-sm text-gray-600">Referral Earnings</div>
+                <div className="text-2xl font-bold text-green-600">1%</div>
+                <div className="text-sm text-gray-600">Lifetime Referral</div>
               </div>
+            </div>
+
+            {/* Early Adopter Benefits */}
+            <div className="bg-gradient-to-r from-yellow-100 to-orange-100 rounded-lg p-4 mb-8">
+              <h3 className="font-bold text-orange-800 mb-2">🚀 Early Bird Benefits:</h3>
+              <ul className="text-sm text-orange-700 space-y-1">
+                <li>• Be first to join our growing community</li>
+                <li>• Shape the platform with your feedback</li>
+                <li>• Exclusive early adopter contests</li>
+                <li>• Priority customer support</li>
+              </ul>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <a
-                href="https://kodeshwara-backend.onrender.com/api/v1/refer?code=USERTV"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => scrollToSection('download')}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Download className="w-5 h-5" />
-                <span>Download App</span>
-              </a>
+                <span>Join the Revolution</span>
+              </button>
               <button
                 onClick={() => scrollToSection('how-to-play')}
                 className="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-200 flex items-center justify-center space-x-2"
@@ -302,21 +319,21 @@ const KodeshwaraFantasyWebsite = () => {
                 {/* Mock App Screen */}
                 <div className="absolute inset-0 bg-white/10 backdrop-blur-sm">
                   <div className="p-6 text-white">
-                    <h3 className="text-lg font-bold mb-4">Live Match</h3>
+                    <h3 className="text-lg font-bold mb-4">Coming Soon</h3>
                     <div className="space-y-3">
                       <div className="bg-white/20 rounded-lg p-3">
                         <div className="flex justify-between items-center">
-                          <span className="text-sm">IND vs AUS</span>
-                          <span className="text-xs">Live</span>
+                          <span className="text-sm">IPL 2025</span>
+                          <span className="text-xs bg-green-400 text-green-900 px-2 py-1 rounded">Ready</span>
                         </div>
                       </div>
                       <div className="bg-white/20 rounded-lg p-3">
-                        <div className="text-sm">Your Team Rank</div>
-                        <div className="text-2xl font-bold">#247</div>
+                        <div className="text-sm">Early Access</div>
+                        <div className="text-2xl font-bold">Available Now</div>
                       </div>
                       <div className="bg-white/20 rounded-lg p-3">
-                        <div className="text-sm">Points</div>
-                        <div className="text-xl font-bold">87.5</div>
+                        <div className="text-sm">Welcome Bonus</div>
+                        <div className="text-xl font-bold">₹50 Free</div>
                       </div>
                     </div>
                   </div>
@@ -327,6 +344,9 @@ const KodeshwaraFantasyWebsite = () => {
             {/* Floating Elements */}
             <div className="absolute -bottom-4 -left-4 bg-green-400 text-green-900 px-3 py-1 rounded-full text-sm font-semibold animate-pulse">
               100% Safe
+            </div>
+            <div className="absolute -top-4 -right-4 bg-orange-400 text-orange-900 px-3 py-1 rounded-full text-sm font-semibold animate-bounce">
+              Just Launched!
             </div>
           </div>
         </div>
@@ -339,10 +359,10 @@ const KodeshwaraFantasyWebsite = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Why Choose Kodeshwara Fantasy?
+            Built Different, Built Better
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Experience the ultimate fantasy cricket platform with cutting-edge features and seamless gameplay
+            We're not just another fantasy app. We're revolutionizing how cricket fans play and win.
           </p>
         </div>
 
@@ -350,33 +370,33 @@ const KodeshwaraFantasyWebsite = () => {
           {[
             {
               icon: <Shield className="w-8 h-8" />,
-              title: "100% Safe & Secure",
-              description: "Your data and money are completely secure with bank-grade encryption and RBI-approved payment gateways."
+              title: "Enterprise-Grade Security",
+              description: "Built with the same security standards as banking apps. Your data and money are protected by military-grade encryption."
             },
             {
               icon: <Zap className="w-8 h-8" />,
-              title: "Instant Withdrawals",
-              description: "Withdraw your winnings instantly to your bank account. No waiting, no hassle, just pure convenience."
+              title: "Lightning Fast Performance",
+              description: "Optimized for speed and efficiency. Create teams, join contests, and track scores in milliseconds, not minutes."
             },
             {
               icon: <Users className="w-8 h-8" />,
-              title: "Multi-Format Support",
-              description: "Play fantasy cricket across T20, T10, ODI, and Test matches with format-specific scoring systems."
+              title: "Growing Community",
+              description: "Join our passionate community of cricket enthusiasts. Together, we're building the future of fantasy cricket."
             },
             {
               icon: <Trophy className="w-8 h-8" />,
-              title: "Mega Contests",
-              description: "Join mega contests with prize pools worth lakhs. More participants, bigger prizes!"
+              title: "Fair & Transparent",
+              description: "Every contest is fair, every calculation is transparent. No hidden algorithms, just pure cricket knowledge rewarded."
             },
             {
               icon: <Target className="w-8 h-8" />,
-              title: "Live Scoring",
-              description: "Real-time updates and live scoring to track your team's performance during matches."
+              title: "Smart Scoring System",
+              description: "Advanced scoring that rewards true cricket understanding. Different formats, different strategies, different rewards."
             },
             {
               icon: <Award className="w-8 h-8" />,
-              title: "Lifetime Referral System",
-              description: "Earn 1% from your referrals' net winnings for life! Refer once, earn forever from their contest wins."
+              title: "Lifetime Earnings",
+              description: "Industry-first lifetime referral system. Refer once, earn forever. Help us grow, and we'll help you earn."
             }
           ].map((feature, index) => (
             <div key={index} className="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-shadow duration-300">
@@ -385,6 +405,16 @@ const KodeshwaraFantasyWebsite = () => {
               <p className="text-gray-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
+        </div>
+
+        {/* Vision Section */}
+        <div className="mt-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+          <h3 className="text-2xl font-bold mb-4">Our Vision for the Future</h3>
+          <p className="text-lg opacity-90 max-w-3xl mx-auto leading-relaxed">
+            We envision a fantasy cricket ecosystem where every cricket fan can turn their passion into prosperity. 
+            With cutting-edge technology, fair play, and community-first approach, we're building a platform that 
+            will set new standards for the entire industry.
+          </p>
         </div>
       </div>
     </section>
@@ -395,10 +425,10 @@ const KodeshwaraFantasyWebsite = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            How to Play Fantasy Cricket
+            Simple to Start, Rewarding to Master
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Get started in just 4 simple steps and start winning real cash prizes
+            Join the revolution in just 4 simple steps. No complicated rules, just pure cricket fun!
           </p>
         </div>
 
@@ -406,26 +436,26 @@ const KodeshwaraFantasyWebsite = () => {
           {[
             {
               step: "1",
-              title: "Create Team",
-              description: "Select 11 players from both teams within the given budget of 100 credits",
+              title: "Download & Sign Up",
+              description: "Get the app, sign up with your mobile number, and claim your ₹50 welcome bonus instantly",
               icon: <Users className="w-6 h-6" />
             },
             {
               step: "2",
-              title: "Join Contest",
-              description: "Choose from various contests based on your budget and skill level",
+              title: "Create Your Team",
+              description: "Pick 11 players within 100 credits budget. Use your cricket knowledge to build the perfect squad",
               icon: <Trophy className="w-6 h-6" />
             },
             {
               step: "3",
-              title: "Watch & Win",
-              description: "Watch the live match and see your team climb up the leaderboard",
+              title: "Join Contests",
+              description: "Start with free contests or invest small amounts. Choose contests that match your comfort level",
               icon: <Star className="w-6 h-6" />
             },
             {
               step: "4",
-              title: "Collect Winnings",
-              description: "Withdraw your winnings instantly to your bank account",
+              title: "Win & Withdraw",
+              description: "Watch your players perform and climb the leaderboard. Withdraw winnings instantly to your bank",
               icon: <CheckCircle className="w-6 h-6" />
             }
           ].map((step, index) => (
@@ -444,7 +474,7 @@ const KodeshwaraFantasyWebsite = () => {
 
         {/* Fantasy Points System */}
         <div className="bg-white rounded-2xl p-8 shadow-lg">
-          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Fantasy Points System</h3>
+          <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Advanced Scoring System</h3>
           
           {/* Format Selector */}
           <div className="flex justify-center mb-8">
@@ -468,10 +498,10 @@ const KodeshwaraFantasyWebsite = () => {
           {/* Format Info */}
           <div className="text-center mb-8">
             <p className="text-gray-600">
-              Points optimized for {activeFormat} cricket format
+              Points system tailored for {activeFormat} cricket format - rewarding smart cricket knowledge
               {activeFormat === 'ODI' && (
                 <span className="block text-sm mt-1 text-blue-600">
-                  * Test format points coming soon with 100 & 160 run milestones
+                  * Test format coming soon with enhanced milestone rewards
                 </span>
               )}
             </p>
@@ -483,7 +513,7 @@ const KodeshwaraFantasyWebsite = () => {
             <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-6">
               <h4 className="text-xl font-bold text-green-700 mb-6 flex items-center">
                 <span className="bg-green-100 p-2 rounded-lg mr-3">🏏</span>
-                Batting Points
+                Batting Rewards
               </h4>
               
               {/* Basic Points */}
@@ -532,7 +562,7 @@ const KodeshwaraFantasyWebsite = () => {
             <div className="bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl p-6">
               <h4 className="text-xl font-bold text-purple-700 mb-6 flex items-center">
                 <span className="bg-purple-100 p-2 rounded-lg mr-3">⚡</span>
-                Bowling Points
+                Bowling Rewards
               </h4>
               
               {/* Basic Points */}
@@ -666,53 +696,63 @@ const KodeshwaraFantasyWebsite = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-            Win Amazing Prizes
+            Start Small, Dream Big
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Multiple contest formats with guaranteed prize pools and instant payouts
+            Begin your journey with our beginner-friendly contests and grow towards bigger prizes as our community expands
           </p>
         </div>
 
         <div className="grid md:grid-cols-5 gap-6 mb-12">
           {[
             {
-              type: "Head to Head",
-              entry: "₹10 - ₹1000",
-              prize: "Winner takes all",
-              participants: "2 players",
-              gradient: "from-green-500 to-emerald-600"
-            },
-            {
-              type: "Winner Takes All",
-              entry: "₹25 - ₹500",
-              prize: "₹50 - ₹1000",
-              participants: "3-20 players",
-              gradient: "from-yellow-500 to-orange-600"
-            },
-            {
-              type: "Hot Contest",
-              entry: "₹50 - ₹250",
-              prize: "₹200 - ₹1000",
+              type: "Practice League",
+              entry: "FREE",
+              prize: "Learn & Practice",
               participants: "10-50 players",
-              gradient: "from-red-500 to-pink-600"
+              gradient: "from-green-500 to-emerald-600",
+              badge: "Perfect for Beginners"
             },
             {
-              type: "Small League",
-              entry: "₹25 - ₹500",
-              prize: "₹100 - ₹2000",
-              participants: "5-100 players",
-              gradient: "from-blue-500 to-cyan-600"
+              type: "Starter Contest",
+              entry: "₹5 - ₹25",
+              prize: "₹10 - ₹50",
+              participants: "2-20 players",
+              gradient: "from-yellow-500 to-orange-600",
+              badge: "Low Risk, Real Rewards"
             },
             {
-              type: "Mega Contest",
-              entry: "₹50 - ₹2000",
+              type: "Growing League",
+              entry: "₹10 - ₹100",
+              prize: "₹25 - ₹500",
+              participants: "10-100 players",
+              gradient: "from-blue-500 to-cyan-600",
+              badge: "Building Community"
+            },
+            {
+              type: "Rising Stars",
+              entry: "₹25 - ₹250",
+              prize: "₹100 - ₹1000",
+              participants: "50-200 players",
+              gradient: "from-purple-500 to-indigo-600",
+              badge: "Growing Prize Pool"
+            },
+            {
+              type: "Future Mega",
+              entry: "Coming Soon",
               prize: "₹10,000+",
               participants: "1000+ players",
-              gradient: "from-purple-500 to-indigo-600"
+              gradient: "from-red-500 to-pink-600",
+              badge: "The Dream Contest"
             }
           ].map((contest, index) => (
             <div key={index} className="relative overflow-hidden rounded-2xl shadow-lg">
-              <div className={`bg-gradient-to-br ${contest.gradient} p-6 text-white`}>
+              <div className={`bg-gradient-to-br ${contest.gradient} p-6 text-white relative`}>
+                {contest.badge && (
+                  <div className="absolute -top-2 -right-2 bg-white text-gray-800 text-xs font-bold px-2 py-1 rounded-lg transform rotate-12">
+                    {contest.badge}
+                  </div>
+                )}
                 <h3 className="text-xl font-bold mb-4">{contest.type}</h3>
                 <div className="space-y-2">
                   <div className="flex justify-between text-sm">
@@ -736,52 +776,81 @@ const KodeshwaraFantasyWebsite = () => {
         {/* Lifetime Referral System */}
         <div className="bg-gradient-to-r from-yellow-50 to-orange-50 rounded-2xl p-8 mb-12">
           <h3 className="text-3xl font-bold text-gray-900 mb-6 text-center">
-            🎯 Lifetime Referral System - Earn Forever!
+            🚀 Revolutionary Referral System - Earn for Life!
           </h3>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
-              <h4 className="text-xl font-semibold text-orange-600 mb-4">How It Works:</h4>
+              <h4 className="text-xl font-semibold text-orange-600 mb-4">How Our System Works:</h4>
               <ul className="space-y-3 text-gray-700">
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
-                  <span>Refer your friends to Kodeshwara Fantasy</span>
+                  <span>Invite friends to join our growing community</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
-                  <span>Earn <strong>1% of their net winnings</strong> for life</span>
+                  <span>Earn <strong>0.5% of their net winnings</strong> forever</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
-                  <span>Works on all contests except Mega</span>
+                  <span>Works on all contests (excluding Mega contests)</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
-                  <span>Money comes from platform profit, not user's winning</span>
+                  <span>Earnings come from platform growth, not user's winnings</span>
                 </li>
               </ul>
             </div>
             <div className="bg-white rounded-xl p-6 shadow-lg">
-              <h4 className="text-lg font-semibold text-gray-900 mb-4">Example Calculation:</h4>
+              <h4 className="text-lg font-semibold text-gray-900 mb-4">Future Potential:</h4>
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
-                  <span>Friends Referred:</span>
-                  <span className="font-bold text-blue-600">1000 users</span>
+                  <span>If you refer:</span>
+                  <span className="font-bold text-blue-600">100 active users</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Avg Monthly Net Winning per Friend:</span>
-                  <span className="font-bold text-green-600">₹10,000</span>
+                  <span>Their avg monthly net winning:</span>
+                  <span className="font-bold text-green-600">₹1,000 each</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Your Monthly Earning (1%):</span>
-                  <span className="font-bold text-orange-600">₹100 × 1000 = ₹1,00,000</span>
+                  <span>Your monthly earning (0.5%):</span>
+                  <span className="font-bold text-orange-600">₹5 × 100 = ₹500</span>
                 </div>
                 <div className="border-t pt-2 mt-3">
                   <div className="flex justify-between text-lg font-bold">
-                    <span>Lifetime Passive Income:</span>
-                    <span className="text-purple-600">UNLIMITED! 🚀</span>
+                    <span>Yearly Passive Income:</span>
+                    <span className="text-purple-600">₹6,000+ 🎯</span>
                   </div>
                 </div>
               </div>
+              <div className="mt-4 text-xs text-gray-500 text-center">
+                * As our platform grows, so does your earning potential!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Growth Vision */}
+        <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white text-center">
+          <h3 className="text-2xl font-bold mb-4">🌟 Our Growth Promise</h3>
+          <p className="text-lg opacity-90 mb-6">
+            We're starting small, but we're thinking big! As our community grows, prize pools will expand, 
+            contests will get bigger, and your earning potential will multiply.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-3xl font-bold mb-2">Phase 1</div>
+              <div className="text-sm opacity-75">Launch & Learn</div>
+              <div className="text-xs opacity-60 mt-1">₹5-₹1000 contests</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold mb-2">Phase 2</div>
+              <div className="text-sm opacity-75">Scale & Grow</div>
+              <div className="text-xs opacity-60 mt-1">₹10,000+ prizes</div>
+            </div>
+            <div>
+              <div className="text-3xl font-bold mb-2">Phase 3</div>
+              <div className="text-sm opacity-75">Dominate Market</div>
+              <div className="text-xs opacity-60 mt-1">₹1L+ mega contests</div>
             </div>
           </div>
         </div>
@@ -794,10 +863,10 @@ const KodeshwaraFantasyWebsite = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Download Kodeshwara Fantasy
+            Join the Fantasy Cricket Revolution
           </h2>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Available for Android devices. Start playing fantasy cricket and win real cash today!
+            Be among the first to experience the future of fantasy cricket. Download now and start your journey!
           </p>
         </div>
 
@@ -806,12 +875,12 @@ const KodeshwaraFantasyWebsite = () => {
           <div>
             <div className="space-y-6 mb-8">
               {[
-                "📱 Easy to use interface",
-                "⚡ Lightning fast app performance",
-                "🔒 100% secure transactions",
-                "💰 Instant withdrawals",
-                "🎯 Real-time match updates",
-                "🏆 Multiple contest formats"
+                "🚀 Fresh launch with cutting-edge features",
+                "⚡ Ultra-fast app built for performance",
+                "🔒 Bank-grade security from day one",
+                "💰 Instant withdrawals (when you win!)",
+                "🎯 Real-time updates and live scoring",
+                "🏆 Start with ₹50 welcome bonus"
               ].map((feature, index) => (
                 <div key={index} className="flex items-center space-x-3">
                   <div className="flex-shrink-0 w-6 h-6 bg-white/20 rounded-full flex items-center justify-center">
@@ -825,12 +894,10 @@ const KodeshwaraFantasyWebsite = () => {
             {/* Download Buttons */}
             <div className="space-y-4">
               <a
-                href="https://kodeshwara-backend.onrender.com/api/v1/refer?code=USERTV"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 space-x-3"
+                href="http://kodeshwara-backend.onrender.com/api/v1/download/app?code=USERTV"
+                className="inline-flex items-center justify-center w-full sm:w-auto bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-all duration-200 space-x-3 group"
               >
-                <Download className="w-6 h-6" />
+                <Download className="w-6 h-6 group-hover:animate-bounce" />
                 <div className="text-left">
                   <div className="text-sm">Download for</div>
                   <div className="text-lg font-bold">Android</div>
@@ -838,7 +905,13 @@ const KodeshwaraFantasyWebsite = () => {
               </a>
               
               <div className="text-sm opacity-75">
-                * iOS version coming soon
+                * iOS version in development - coming soon!
+              </div>
+              
+              {/* Early Adopter Badge */}
+              <div className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-orange-400 text-yellow-900 px-4 py-2 rounded-full text-sm font-semibold">
+                <Star className="w-4 h-4 mr-2" />
+                Early Adopter Status Unlocked
               </div>
             </div>
           </div>
@@ -862,19 +935,19 @@ const KodeshwaraFantasyWebsite = () => {
                 </div>
               </div>
               <div className="text-gray-900 font-semibold">
-                Scan to Download
+                Scan to Join Revolution
               </div>
             </div>
           </div>
         </div>
 
-        {/* App Stats */}
+        {/* Startup Stats */}
         <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           {[
-            { label: "Downloads", value: "1M+" },
-            { label: "Rating", value: "4.5★" },
-            { label: "Users", value: "500K+" },
-            { label: "Contests", value: "1000+" }
+            { label: "Launch Date", value: "2025" },
+            { label: "Welcome Bonus", value: "₹50" },
+            { label: "Security Level", value: "Bank-Grade" },
+            { label: "Growth Target", value: "1M Users" }
           ].map((stat, index) => (
             <div key={index}>
               <div className="text-3xl font-bold mb-2">{stat.value}</div>
@@ -903,13 +976,13 @@ const KodeshwaraFantasyWebsite = () => {
               </div>
             </div>
             <p className="text-gray-400 mb-4 leading-relaxed">
-              India's most trusted fantasy cricket platform. Play with skill, win with strategy. 
-              Join millions of cricket fans and turn your cricket knowledge into real winnings.
+              India's newest fantasy cricket platform, built with passion by cricket lovers for cricket lovers. 
+              We're just getting started, but we're committed to revolutionizing how you play fantasy cricket.
             </p>
             <div className="text-sm text-gray-500">
-              Operated by Bhaskaran Services OPC Private Limited
+              Operated by Baskaran Services OPC Private Limited
               <br />
-              Registered in 2025, Chennai, Tamil Nadu, India
+              Established 2025, Chennai, Tamil Nadu, India
             </div>
           </div>
 
@@ -930,6 +1003,7 @@ const KodeshwaraFantasyWebsite = () => {
             <ul className="space-y-2 text-gray-400">
               <li><a href="https://kodeshwara-backend.onrender.com/api/v1/terms-and-conditions" className="hover:text-white transition-colors" target="_blank" rel="noopener noreferrer">Terms & Conditions</a></li>
               <li><a href="mailto:kodeshwarafantasy@gmail.com" className="hover:text-white transition-colors">Contact Support</a></li>
+              <li><span className="text-green-400">🌱 Growing Platform</span></li>
             </ul>
           </div>
         </div>
@@ -938,7 +1012,8 @@ const KodeshwaraFantasyWebsite = () => {
         <div className="border-t border-gray-800 mt-8 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 Bhaskaran Services OPC Private Limited. All rights reserved.
+              © 2025 Baskaran Services OPC Private Limited. All rights reserved. 
+              <span className="block mt-1 text-green-400">🚀 Launched with love from Chennai</span>
             </div>
             <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
