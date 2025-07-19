@@ -273,10 +273,6 @@ const KodeshwaraFantasyWebsite = () => {
                 <div className="text-sm text-gray-600">Fresh Launch</div>
               </div>
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600">₹25</div>
-                <div className="text-sm text-gray-600">Welcome Bonus</div>
-              </div>
-              <div className="text-center">
                 <div className="text-2xl font-bold text-green-600">1%</div>
                 <div className="text-sm text-gray-600">Lifetime Referral</div>
               </div>
