@@ -780,7 +780,7 @@ const KodeshwaraFantasyWebsite = () => {
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
-                  <span>Earn <strong>0.5% of their net winnings</strong> forever</span>
+                  <span>Earn <strong>1% of their net winnings</strong> forever</span>
                 </li>
                 <li className="flex items-start space-x-3">
                   <span className="text-green-500 font-bold">✓</span>
@@ -804,13 +804,13 @@ const KodeshwaraFantasyWebsite = () => {
                   <span className="font-bold text-green-600">₹1,000 each</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Your monthly earning (0.5%):</span>
-                  <span className="font-bold text-orange-600">₹5 × 100 = ₹500</span>
+                  <span>Your monthly earning (1%):</span>
+                  <span className="font-bold text-orange-600">₹10 × 100 = ₹1000</span>
                 </div>
                 <div className="border-t pt-2 mt-3">
                   <div className="flex justify-between text-lg font-bold">
                     <span>Yearly Passive Income:</span>
-                    <span className="text-purple-600">₹6,000+ 🎯</span>
+                    <span className="text-purple-600">₹12,000+ 🎯</span>
                   </div>
                 </div>
               </div>
