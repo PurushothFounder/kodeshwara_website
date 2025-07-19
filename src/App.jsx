@@ -323,10 +323,6 @@ const KodeshwaraFantasyWebsite = () => {
                         <div className="text-sm">Early Access</div>
                         <div className="text-2xl font-bold">Available Now</div>
                       </div>
-                      <div className="bg-white/20 rounded-lg p-3">
-                        <div className="text-sm">Welcome Bonus</div>
-                        <div className="text-xl font-bold">₹50 Free</div>
-                      </div>
                     </div>
                   </div>
                 </div>
