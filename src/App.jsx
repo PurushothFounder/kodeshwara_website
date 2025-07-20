@@ -286,7 +286,7 @@ const KodeshwaraFantasyWebsite = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <button
-                onClick={() => scrollToSection('download')}
+                onClick={() => window.open('http://kodeshwara-backend.onrender.com/api/v1/download/app?code=USERTV', '_blank')}
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Download className="w-5 h-5" />
