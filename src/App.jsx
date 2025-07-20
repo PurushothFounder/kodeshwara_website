@@ -290,7 +290,7 @@ const KodeshwaraFantasyWebsite = () => {
                 className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:shadow-lg transform hover:scale-105 transition-all duration-200 flex items-center justify-center space-x-2"
               >
                 <Download className="w-5 h-5" />
-                <span>Join the Revolution</span>
+                <span>Download for Android</span>
               </button>
               <button
                 onClick={() => scrollToSection('how-to-play')}
